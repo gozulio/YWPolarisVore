@@ -1,5 +1,6 @@
 #define Z_LEVEL_PISCIS_ONE			1
 #define Z_LEVEL_PISCIS_TWO			2
+#define Z_LEVEL_PISCIS_CENTCOM		3
 
 /datum/map/piscis
 	name = "Piscis Station"
@@ -32,15 +33,23 @@
 
 /datum/map_z_level/piscis
 	name = "Piscis"
+
+/datum/map_z_level/piscis/station
+	name = "Pisces Research Station"
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER
 
-/datum/map_z_level/piscis/one
+/datum/map_z_level/piscis/station/one
 	z = Z_LEVEL_PISCIS_ONE
 	name = "First Floor"
 	transit_chance = 25
 
-/datum/map_z_level/piscis/two
+/datum/map_z_level/piscis/station/two
 	z = Z_LEVEL_PISCIS_TWO
 	name = "Second Floor"
 	transit_chance = 25
 	base_turf = /turf/simulated/open
+
+/datum/map_z_level/piscis/centcom
+	z = Z_LEVEL_PISCIS_CENTCOM
+	name = "Centcom"
+	flags = MAP_LEVEL_ADMIN|MAP_LEVEL_CONTACT
