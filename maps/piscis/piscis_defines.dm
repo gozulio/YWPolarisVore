@@ -12,7 +12,7 @@
 
 	zlevel_datum_type = /datum/map_z_level/piscis
 
-	station_name  = "Piscis"
+	station_name  = "Piscis Research Station"
 	station_short = "Piscis"
 	dock_name     = "Docking Bay"
 	boss_name     = "Central Command"
@@ -30,6 +30,9 @@
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive at docks one and two in approximately %ETA%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 
+	unit_test_exempt_areas = list(
+		/area/hallway/secondary/docking_hallway/dock_one,
+		/area/hallway/secondary/docking_hallway/dock_two)
 
 /datum/map_z_level/piscis
 	name = "Piscis"
