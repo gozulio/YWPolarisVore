@@ -43,3 +43,4 @@
 	z = Z_LEVEL_PISCIS_TWO
 	name = "Second Floor"
 	transit_chance = 25
+	base_turf = /turf/simulated/open
