@@ -4,7 +4,7 @@
 
 /datum/map/piscis
 	name = "Piscis Station"
-	full_name = "Piscis Research Station"
+	full_name = "Piscis Research Institute"
 	path = "piscis"
 
 	lobby_icon = 'icons/misc/title.dmi'
@@ -12,14 +12,14 @@
 
 	zlevel_datum_type = /datum/map_z_level/piscis
 
-	station_name  = "Piscis Research Station"
+	station_name  = "Piscis Research Institute"
 	station_short = "Piscis"
-	dock_name     = "Docking Bay"
+	dock_name     = "Docking Arm Two"
 	boss_name     = "Central Command"
 	boss_short    = "Centcom"
-	company_name  = "Nanotrasen"
+	company_name  = "NanoTrasen"
 	company_short = "NT"
-	starsys_name  = "Virgo Erigon"
+	starsys_name  = "Piscis Minor"
 
 	shuttle_docked_message = "The scheduled shuttle to the %dock_name% has docked with the station at docks one and two. It will depart in approximately %ETD%."
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."

@@ -334,7 +334,7 @@
 "gv" = (/turf/space/transit/north,/area/shuttle/escape_pod2/transit)
 "gw" = (/turf/space/transit/north,/area/shuttle/escape_pod1/transit)
 "gx" = (/obj/structure/table/standard,/turf/simulated/shuttle/floor{icon_state = "floor_white"},/area/shuttle/arrival/pre_game)
-"gy" = (/obj/machinery/hologram/holopad,/obj/effect/landmark{name = "Observer-Start"},/turf/simulated/shuttle/floor,/area/shuttle/arrival/pre_game)
+"gy" = (/obj/machinery/hologram/holopad,/turf/simulated/shuttle/floor,/area/shuttle/arrival/pre_game)
 "gz" = (/obj/structure/table/standard,/obj/item/weapon/book/codex/lore/vir,/turf/simulated/shuttle/floor{icon_state = "floor_white"},/area/shuttle/arrival/pre_game)
 "gA" = (/obj/machinery/computer/pod{id = "syndicate_elite"; name = "Hull Door Control"},/turf/simulated/shuttle/floor/red,/area/shuttle/syndicate_elite/mothership)
 "gB" = (/obj/machinery/computer/syndicate_elite_shuttle,/turf/simulated/shuttle/floor/red,/area/shuttle/syndicate_elite/mothership)
