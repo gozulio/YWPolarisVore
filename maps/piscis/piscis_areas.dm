@@ -12,7 +12,19 @@
 	lift_floor_name = "Deck Two"
 	lift_announce_str = "Arriving at Deck Level 1."
 
-//Civillian Hallways
+/area/hallway/primary/elevatormaint
+	name = "Elevator and Maitenance"
+	icon = 'icons/turf/areas_vr.dmi'
+	icon_state = "blue-red-d"
+
+/area/hallway/primary/elevatormaint/first
+	name = "\improper First Floor Elevator Shaft"
+
+/area/hallway/primary/elevatormaint/second
+	name = "\improper Second Floor Elevator Shaft"
+
+
+//Civillian Hallways - 2nd floor
 /area/hallway/secondary/docking_hallway/dock_one
 	name = "\improper Docking Arm One"
 
@@ -21,5 +33,11 @@
 
 /area/hallway/primary/atrium
 	name = "\improper Atrium"
-	icon_state = "atrium"
 	icon = 'maps/piscis/icons/area.dmi'
+	icon_state = "atrium"
+
+//Civilian Hallways - 1st floor
+/area/hallway/primary/firstfloorcentral
+	name = "Service Elevator Hall"
+	icon = 'icons/turf/areas_vr.dmi'
+	icon_state = "yellow"
