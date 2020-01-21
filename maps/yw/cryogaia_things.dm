@@ -21,7 +21,7 @@
 
 
 
-/obj/effect/step_trigger/teleporter/planetary_fall/borealis2/Initialize()
+/obj/effect/step_trigger/teleporter/planetary_fall/borealis2/find_planet()
 	planet = planet_borealis2
 	. = ..()
 
@@ -119,6 +119,29 @@
 /obj/machinery/smartfridge/chemistry/chemvator/down/Initialize()
 	. = ..()
 	var/obj/machinery/smartfridge/chemistry/chemvator/above = locate(/obj/machinery/smartfridge/chemistry/chemvator,get_zstep(src,UP))
+	if(istype(above))
+		above.attached = src
+		attached = above
+		item_records = attached.item_records
+	else
+		to_chat(world,"<span class='danger'>[src] at [x],[y],[z] cannot find the unit above it!</span>")
+
+
+/obj/machinery/smartfridge/plantvator
+	name = "\improper Smart plantavator - Upper"
+	desc = "A refrigerated storage unit for Food and plant storage. Now sporting a fancy system of pulleys to lift bottles up and down."
+	var/obj/machinery/smartfridge/plantvator/attached
+
+/obj/machinery/smartfridge/plantvator/down/Destroy()
+	attached = null
+	return ..()
+
+/obj/machinery/smartfridge/plantvator/down
+	name = "\improper Smart Plantavator - Lower"
+
+/obj/machinery/smartfridge/plantvator/down/Initialize()
+	. = ..()
+	var/obj/machinery/smartfridge/plantvator/above = locate(/obj/machinery/smartfridge/plantvator,get_zstep(src,UP))
 	if(istype(above))
 		above.attached = src
 		attached = above
@@ -311,6 +334,7 @@ var/global/list/latejoin_tram   = list()
 
 //Freezable Airlock Door
 /obj/machinery/door/airlock/glass_external/freezable
+	maxhealth = 600
 	var/frozen = 0
 	var/freezing = 0 //see process().
 	var/deiceTools[0]
@@ -400,9 +424,8 @@ var/global/list/latejoin_tram   = list()
 			if(frozen && prob(50))
 				unFreeze()
 	return
-
 /obj/machinery/door/airlock/glass_external/freezable/process()
-	if(world.time >= nextWeatherCheck && !freezing)	
+	if(world.time >= nextWeatherCheck && !freezing)  //don't do the thing if i'm already doing it.
 		freezing = 1
 		var/random = rand(2,7)
 		nextWeatherCheck = (world.time + ((random + 13) SECONDS))

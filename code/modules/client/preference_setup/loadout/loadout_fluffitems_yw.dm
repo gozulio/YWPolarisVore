@@ -346,6 +346,22 @@
 
 //  F CKEYS
 
+//Foxicide
+//Kaith
+/datum/gear/fluff/kaith_modkit
+	path = /obj/item/device/modkit_conversion/fluff/kaith_knife_kit
+	display_name = "Kaith's modkit"
+	description = "A kit containing all the needed tools and parts to modify a survival knife"
+	ckeywhitelist = list("foxicide")
+	character_name = list("Kaith")
+
+/datum/gear/fluff/kaith_bag
+	path = /obj/item/weapon/storage/backpack/fluff/kaith
+	display_name = "Light duffle bag"
+	description = "A compact duffle bag, meant for long hikes."
+	ckeywhitelist = list("foxicide")
+	character_name = list("Kaith")
+
 //  G CKEYS
 
 //generalpantsu
@@ -793,6 +809,12 @@
 	path = /obj/item/clothing/accessory/fluff/vasharr_pendant
 	display_name = "Zahirn pendant"
 	description = "A golden necklace, the symbol for the Zahirn clan can be found on it's pendant."
+	ckeywhitelist = list("radiantflash")
+	character_name = list("Vasharr Zahirn")
+/datum/gear/fluff/vasharr_coffee
+	path = /obj/item/weapon/reagent_containers/food/drinks/bluespace_coffee
+	display_name = "Bluespace Coffee"
+	description = "Dreamt up in a strange feverish dream, this coffee cup seems to have been heavily modified with a variety of unlikely parts and wires, and never seems to run out of coffee. Truly the differance between madmen and genius is success."
 	ckeywhitelist = list("radiantflash")
 	character_name = list("Vasharr Zahirn")
 
