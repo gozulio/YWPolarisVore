@@ -34,6 +34,7 @@ var/list/gamemode_cache = list()
 	var/vote_period = 600				// length of voting period (deciseconds, default 1 minute)
 	var/vote_autotransfer_initial = 108000 // Length of time before the first autotransfer vote is called
 	var/vote_autotransfer_interval = 36000 // length of time before next sequential autotransfer vote
+	var/vote_autotransfer_amount = 1 // number of extension votes before the final one
 	var/vote_autogamemode_timeleft = 100 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = 0				// dead people can't vote (tbi)
@@ -103,6 +104,13 @@ var/list/gamemode_cache = list()
 	var/debugparanoid = 0
 	var/panic_bunker = 0
 	var/paranoia_logging = 0
+
+	var/ip_reputation = FALSE		//Should we query IPs to get scores? Generates HTTP traffic to an API service.
+	var/ipr_email					//Left null because you MUST specify one otherwise you're making the internet worse.
+	var/ipr_block_bad_ips = FALSE	//Should we block anyone who meets the minimum score below? Otherwise we just log it (If paranoia logging is on, visibly in chat).
+	var/ipr_bad_score = 1			//The API returns a value between 0 and 1 (inclusive), with 1 being 'definitely VPN/Tor/Proxy'. Values equal/above this var are considered bad.
+	var/ipr_allow_existing = FALSE 	//Should we allow known players to use VPNs/Proxies? If the player is already banned then obviously they still can't connect.
+	var/ipr_minimum_age = 5			//How many days before a player is considered 'fine' for the purposes of allowing them to use VPNs.
 
 	var/serverurl
 	var/server
@@ -409,6 +417,9 @@ var/list/gamemode_cache = list()
 
 				if ("vote_autotransfer_interval")
 					config.vote_autotransfer_interval = text2num(value)
+
+				if ("vote_autotransfer_amount")
+					config.vote_autotransfer_amount = text2num(value) //YW addition, vote transfer amount
 
 				if ("vote_autogamemode_timeleft")
 					config.vote_autogamemode_timeleft = text2num(value)
@@ -805,6 +816,24 @@ var/list/gamemode_cache = list()
 
 				if ("paranoia_logging")
 					config.paranoia_logging = 1
+
+				if("ip_reputation")
+					config.ip_reputation = 1
+
+				if("ipr_email")
+					config.ipr_email = value
+
+				if("ipr_block_bad_ips")
+					config.ipr_block_bad_ips = 1
+
+				if("ipr_bad_score")
+					config.ipr_bad_score = text2num(value)
+
+				if("ipr_allow_existing")
+					config.ipr_allow_existing = 1
+
+				if("ipr_minimum_age")
+					config.ipr_minimum_age = text2num(value)
 
 				if("random_submap_orientation")
 					config.random_submap_orientation = 1
